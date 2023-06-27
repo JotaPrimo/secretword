@@ -1,12 +1,12 @@
 import "./StartScreen";
 
 
-function StartScreen() {
+function StartScreen({ startGame }) {
   return (
     <div className="start">
         <h2>StartScreen</h2>
         <p>Clique no botão abaixo para começar o jogo</p>
-        <button>Clique para começar</button>
+        <button onClick={startGame}>Clique para começar</button>
     </div>
   )
 }
