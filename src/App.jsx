@@ -25,30 +25,44 @@ function App() {
   const GAME = "game";
   const END = "end";
 
-  // functions check
-  const isStart = () => {
-    return gameStage === START;
-  };
-
-  const isGame = () => {
-    return gameStage === GAME;
-  };
-
-  const isEnd = () => {
-    return gameStage === END;
-  };
-  // functions check
-
-
   // inicializando o stageGame
-  const [gameStage, setStageGame] = useState(stages[0].name);
+  const [gameStage, setGameStage] = useState(stages[0].name);
   const [words] = useState(wordsList)
+
+  // alterando o gameStage
+  const startGame = () => {    
+    setGameStage(stages[1].name)    
+  };
+
+  // process the letter input
+  const verifyLetter = () => {
+    setGameStage(stages[2].name)
+  }
+
+  // restarts the game
+  const retryGame = () => {
+    setGameStage(stages[0].name);   
+  }
+
+  // functions check stage
+  function isStart() {
+    return gameStage === START;
+  }
+
+  function isGame() {
+    return gameStage === GAME;
+  }
+
+  function isEnd() {
+    return gameStage === END;
+  }
+
 
   return (
     <div className="App">
-      {isStart && <StartScreen />}
-      {isGame === "game" && <Game />}
-      {isEnd === "end" && <GameOver />}
+      { isStart() && <StartScreen startGame={startGame} /> }
+      { isGame() && <Game verifyLetter={verifyLetter} /> }
+      { isEnd() && <GameOver retryGame={retryGame} /> }
     </div>
   );
 }

@@ -2,9 +2,12 @@ import React from 'react'
 
 import './Game.css'
 
-function Game() {
+function Game({ verifyLetter }) {
   return (
-    <div>Game</div>
+    <div>
+      <h2>Game</h2>
+      <button onClick={verifyLetter}>Finalizar Jogo</button>
+    </div>
   )
 }
 
