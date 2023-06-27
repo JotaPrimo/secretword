@@ -36,7 +36,7 @@ function App() {
   const [wrongLetters, setWrongLetters] = useState([]);
   const [guesses, setGuesses] = useState(3);
   const [score, setScore] = useState(0);
-  
+
   // pickWordAndCategory
   const pickWordAndCategory = () => {
     const categories = Object.keys(words);
@@ -70,8 +70,10 @@ function App() {
   };
 
   // process the letter input
-  const verifyLetter = () => {
-    setGameStage(stages[2].name);
+  const verifyLetter = (letter) => {
+    console.log(letter);
+
+    // limpando valor
   };
 
   // restarts the game
